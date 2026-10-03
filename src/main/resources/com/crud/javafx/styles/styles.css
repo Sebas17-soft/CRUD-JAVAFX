@@ -1,0 +1,364 @@
+/* ==========================================================================
+   HOJA DE ESTILOS CSS - SISTEMA CRUD JAVAFX
+   Diseñado con principios modernos de UX/UI, jerarquía visual y accesibilidad.
+   ========================================================================== */
+
+/* Variables y Estilos Generales de la Raíz */
+.root {
+    -fx-font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    -fx-font-size: 13px;
+    -fx-background-color: #f1f5f9;
+}
+
+/* ==========================================================================
+   ENCABEZADO / HEADER
+   ========================================================================== */
+.header-bar {
+    -fx-background-color: linear-gradient(to right, #1e293b, #0f172a);
+    -fx-padding: 16px 24px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.15), 8, 0, 0, 3);
+}
+
+.header-title {
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+}
+
+.header-subtitle {
+    -fx-text-fill: #94a3b8;
+    -fx-font-size: 12px;
+}
+
+.badge-memory {
+    -fx-background-color: #334155;
+    -fx-text-fill: #38bdf8;
+    -fx-padding: 4px 10px;
+    -fx-background-radius: 12px;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+}
+
+/* ==========================================================================
+   TARJETAS Y PANELES (CARDS)
+   ========================================================================== */
+.card {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+    -fx-border-color: #e2e8f0;
+    -fx-border-width: 1px;
+    -fx-padding: 20px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.04), 8, 0, 0, 2);
+}
+
+.card-title {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1e293b;
+}
+
+.card-badge-create {
+    -fx-background-color: #ecfdf5;
+    -fx-text-fill: #059669;
+    -fx-padding: 3px 8px;
+    -fx-background-radius: 8px;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+}
+
+.card-badge-edit {
+    -fx-background-color: #fffbeb;
+    -fx-text-fill: #d97706;
+    -fx-padding: 3px 8px;
+    -fx-background-radius: 8px;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+}
+
+/* Tarjetas de Métricas (Dashboard) */
+.stat-card {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 8px;
+    -fx-border-radius: 8px;
+    -fx-border-color: #e2e8f0;
+    -fx-border-width: 1px;
+    -fx-padding: 12px 16px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.03), 4, 0, 0, 1);
+}
+
+.stat-label {
+    -fx-text-fill: #64748b;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+}
+
+.stat-value {
+    -fx-text-fill: #0f172a;
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+}
+
+/* ==========================================================================
+   CAMPOS DE ENTRADA Y FORMULARIO
+   ========================================================================== */
+.form-label {
+    -fx-font-size: 12px;
+    -fx-font-weight: 600;
+    -fx-text-fill: #334155;
+}
+
+.form-label-required {
+    -fx-text-fill: #ef4444;
+}
+
+.text-field {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #cbd5e1;
+    -fx-border-radius: 6px;
+    -fx-background-radius: 6px;
+    -fx-padding: 8px 12px;
+    -fx-font-size: 13px;
+    -fx-text-fill: #1e293b;
+    -fx-prompt-text-fill: #94a3b8;
+}
+
+.text-field:focused {
+    -fx-border-color: #2563eb;
+    -fx-background-color: #ffffff;
+    -fx-effect: dropshadow(three-pass-box, rgba(37, 99, 235, 0.2), 4, 0, 0, 0);
+}
+
+.text-field-disabled {
+    -fx-background-color: #f1f5f9;
+    -fx-border-color: #e2e8f0;
+    -fx-text-fill: #64748b;
+    -fx-opacity: 0.9;
+}
+
+.text-field-error {
+    -fx-border-color: #ef4444;
+    -fx-background-color: #fef2f2;
+}
+
+.text-field-error:focused {
+    -fx-border-color: #dc2626;
+    -fx-effect: dropshadow(three-pass-box, rgba(239, 68, 68, 0.2), 4, 0, 0, 0);
+}
+
+.error-label {
+    -fx-text-fill: #dc2626;
+    -fx-font-size: 11px;
+    -fx-font-weight: 500;
+}
+
+/* ==========================================================================
+   BANNERS DE NOTIFICACIÓN VISUAL
+   ========================================================================== */
+.banner {
+    -fx-padding: 10px 14px;
+    -fx-background-radius: 6px;
+    -fx-border-radius: 6px;
+}
+
+.banner-success {
+    -fx-background-color: #ecfdf5;
+    -fx-border-color: #a7f3d0;
+    -fx-border-width: 1px;
+    -fx-text-fill: #065f46;
+}
+
+.banner-error {
+    -fx-background-color: #fef2f2;
+    -fx-border-color: #fecaca;
+    -fx-border-width: 1px;
+    -fx-text-fill: #991b1b;
+}
+
+.banner-info {
+    -fx-background-color: #eff6ff;
+    -fx-border-color: #bfdbfe;
+    -fx-border-width: 1px;
+    -fx-text-fill: #1e40af;
+}
+
+.banner-text {
+    -fx-font-size: 12px;
+    -fx-font-weight: 500;
+}
+
+/* ==========================================================================
+   BOTONES Y ESTILOS DE ACCIÓN
+   ========================================================================== */
+.btn {
+    -fx-cursor: hand;
+    -fx-font-size: 13px;
+    -fx-font-weight: 600;
+    -fx-padding: 8px 16px;
+    -fx-background-radius: 6px;
+    -fx-border-radius: 6px;
+    -fx-alignment: center;
+}
+
+/* Botón Guardar / Principal (Verde Esmeralda) */
+.btn-save {
+    -fx-background-color: #059669;
+    -fx-text-fill: #ffffff;
+    -fx-effect: dropshadow(three-pass-box, rgba(5, 150, 105, 0.2), 4, 0, 0, 1);
+}
+
+.btn-save:hover {
+    -fx-background-color: #047857;
+}
+
+.btn-save:pressed {
+    -fx-background-color: #065f46;
+}
+
+/* Botón Actualizar (Ámbar) */
+.btn-update {
+    -fx-background-color: #d97706;
+    -fx-text-fill: #ffffff;
+    -fx-effect: dropshadow(three-pass-box, rgba(217, 119, 6, 0.2), 4, 0, 0, 1);
+}
+
+.btn-update:hover {
+    -fx-background-color: #b45309;
+}
+
+/* Botón Nuevo / Limpiar (Azul Corporativo) */
+.btn-new {
+    -fx-background-color: #2563eb;
+    -fx-text-fill: #ffffff;
+    -fx-effect: dropshadow(three-pass-box, rgba(37, 99, 235, 0.2), 4, 0, 0, 1);
+}
+
+.btn-new:hover {
+    -fx-background-color: #1d4ed8;
+}
+
+.btn-new:pressed {
+    -fx-background-color: #1e40af;
+}
+
+/* Botón Editar Selección (Púrpura / Índigo) */
+.btn-edit {
+    -fx-background-color: #4f46e5;
+    -fx-text-fill: #ffffff;
+}
+
+.btn-edit:hover {
+    -fx-background-color: #4338ca;
+}
+
+/* Botón Eliminar (Rojo Peligro) */
+.btn-delete {
+    -fx-background-color: #dc2626;
+    -fx-text-fill: #ffffff;
+}
+
+.btn-delete:hover {
+    -fx-background-color: #b91c1c;
+}
+
+.btn-delete:pressed {
+    -fx-background-color: #991b1b;
+}
+
+/* Botón Secundario / Cancelar (Gris) */
+.btn-cancel {
+    -fx-background-color: #e2e8f0;
+    -fx-text-fill: #334155;
+}
+
+.btn-cancel:hover {
+    -fx-background-color: #cbd5e1;
+}
+
+.btn:disabled {
+    -fx-opacity: 0.45;
+    -fx-cursor: default;
+}
+
+/* ==========================================================================
+   TABLA DE DATOS (TABLEVIEW)
+   ========================================================================== */
+.table-view {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 8px;
+    -fx-border-radius: 8px;
+    -fx-border-color: #e2e8f0;
+    -fx-border-width: 1px;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #f8fafc;
+    -fx-background-radius: 8px 8px 0 0;
+    -fx-border-color: transparent transparent #e2e8f0 transparent;
+    -fx-border-width: 1px;
+}
+
+.table-view .column-header {
+    -fx-background-color: transparent;
+    -fx-padding: 10px 8px;
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: #475569;
+    -fx-font-weight: bold;
+    -fx-font-size: 12px;
+}
+
+.table-view .table-row-cell {
+    -fx-background-color: #ffffff;
+    -fx-border-color: transparent transparent #f1f5f9 transparent;
+    -fx-border-width: 1px;
+    -fx-padding: 4px 0;
+}
+
+.table-view .table-row-cell:odd {
+    -fx-background-color: #fafbfc;
+}
+
+.table-view .table-row-cell:hover {
+    -fx-background-color: #f1f5f9;
+}
+
+.table-view .table-row-cell:selected {
+    -fx-background-color: #dbeafe;
+}
+
+.table-view .table-row-cell:selected .text {
+    -fx-fill: #1e3a8a;
+    -fx-font-weight: 600;
+}
+
+.table-view .cell {
+    -fx-padding: 8px 10px;
+    -fx-alignment: center-left;
+    -fx-text-fill: #1e293b;
+}
+
+/* Alineaciones específicas */
+.cell-center {
+    -fx-alignment: center;
+}
+
+.cell-right {
+    -fx-alignment: center-right;
+}
+
+/* ==========================================================================
+   BARRA DE ESTADO INFERIOR (FOOTER)
+   ========================================================================== */
+.footer-bar {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #e2e8f0 transparent transparent transparent;
+    -fx-border-width: 1px;
+    -fx-padding: 8px 20px;
+}
+
+.footer-text {
+    -fx-text-fill: #64748b;
+    -fx-font-size: 11px;
+}

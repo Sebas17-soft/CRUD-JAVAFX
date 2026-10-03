@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Priority?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane minHeight="650.0" minWidth="980.0" prefHeight="700.0" prefWidth="1100.0"
+            xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.crud.javafx.controller.ProductoController">
+
+    <!-- ================================================================= -->
+    <!-- ENCABEZADO SUPERIOR (APP BAR)                                    -->
+    <!-- ================================================================= -->
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="15.0" styleClass="header-bar" BorderPane.alignment="CENTER">
+            <children>
+                <VBox spacing="2.0">
+                    <children>
+                        <Label styleClass="header-title" text="📦 Gestión de Inventario de Productos" />
+                        <Label styleClass="header-subtitle" text="Sistema CRUD completo en JavaFX con arquitectura MVC y almacenamiento en ArrayList" />
+                    </children>
+                </VBox>
+                <Region HBox.hgrow="ALWAYS" />
+                <Label styleClass="badge-memory" text="💾 Almacenamiento: Memoria (ArrayList)" />
+            </children>
+        </HBox>
+    </top>
+
+    <!-- ================================================================= -->
+    <!-- CONTENIDO PRINCIPAL (PANEL IZQUIERDO Y DERECHO)                  -->
+    <!-- ================================================================= -->
+    <center>
+        <HBox spacing="20.0" BorderPane.alignment="CENTER">
+            <padding>
+                <Insets bottom="16.0" left="20.0" right="20.0" top="16.0" />
+            </padding>
+            <children>
+
+                <!-- ========================================================= -->
+                <!-- COLUMNA IZQUIERDA: FORMULARIO Y ACCIONES                 -->
+                <!-- ========================================================= -->
+                <VBox maxWidth="400.0" minWidth="340.0" prefWidth="370.0" spacing="16.0">
+                    <children>
+                        <VBox spacing="14.0" styleClass="card" VBox.vgrow="ALWAYS">
+                            <children>
+
+                                <!-- Título del Formulario y Modo -->
+                                <HBox alignment="CENTER_LEFT" spacing="10.0">
+                                    <children>
+                                        <Label styleClass="card-title" text="Datos del Producto" />
+                                        <Region HBox.hgrow="ALWAYS" />
+                                        <Label fx:id="lblModoFormulario" styleClass="card-badge-create" text="➕ Modo Nuevo" />
+                                    </children>
+                                </HBox>
+
+                                <Separator />
+
+                                <!-- Banner de Notificación Visual (Éxito / Error / Info) -->
+                                <HBox fx:id="bannerNotificacion" alignment="CENTER_LEFT" managed="false" spacing="8.0" styleClass="banner, banner-info" visible="false">
+                                    <children>
+                                        <Label fx:id="lblMensajeEstado" styleClass="banner-text" text="Mensaje del sistema" wrapText="true" HBox.hgrow="ALWAYS" />
+                                    </children>
+                                </HBox>
+
+                                <!-- Campo ID (Auto-generado / Solo lectura) -->
+                                <VBox spacing="4.0">
+                                    <children>
+                                        <Label styleClass="form-label" text="ID del Producto (Automático)" />
+                                        <TextField fx:id="txtId" editable="false" promptText="Auto-generado por el sistema" styleClass="text-field-disabled" />
+                                    </children>
+                                </VBox>
+
+                                <!-- Campo Nombre -->
+                                <VBox spacing="4.0">
+                                    <children>
+                                        <HBox spacing="2.0">
+                                            <children>
+                                                <Label styleClass="form-label" text="Nombre del Producto" />
+                                                <Label styleClass="form-label, form-label-required" text="*" />
+                                            </children>
+                                        </HBox>
+                                        <TextField fx:id="txtNombre" promptText="Ej. Laptop Dell Inspiron 15" />
+                                        <Label fx:id="lblErrorNombre" managed="false" styleClass="error-label" visible="false" />
+                                    </children>
+                                </VBox>
+
+                                <!-- Campo Precio -->
+                                <VBox spacing="4.0">
+                                    <children>
+                                        <HBox spacing="2.0">
+                                            <children>
+                                                <Label styleClass="form-label" text="Precio Unitario ($)" />
+                                                <Label styleClass="form-label, form-label-required" text="*" />
+                                            </children>
+                                        </HBox>
+                                        <TextField fx:id="txtPrecio" promptText="Ej. 799.99" />
+                                        <Label fx:id="lblErrorPrecio" managed="false" styleClass="error-label" visible="false" />
+                                    </children>
+                                </VBox>
+
+                                <!-- Campo Cantidad -->
+                                <VBox spacing="4.0">
+                                    <children>
+                                        <HBox spacing="2.0">
+                                            <children>
+                                                <Label styleClass="form-label" text="Cantidad en Stock" />
+                                                <Label styleClass="form-label, form-label-required" text="*" />
+                                            </children>
+                                        </HBox>
+                                        <TextField fx:id="txtCantidad" promptText="Ej. 25" />
+                                        <Label fx:id="lblErrorCantidad" managed="false" styleClass="error-label" visible="false" />
+                                    </children>
+                                </VBox>
+
+                                <Region VBox.vgrow="ALWAYS" />
+
+                                <!-- Botones de Acción del Formulario -->
+                                <VBox spacing="10.0">
+                                    <children>
+                                        <HBox spacing="10.0">
+                                            <children>
+                                                <Button fx:id="btnGuardar" maxWidth="Infinity" onAction="#guardarProducto" styleClass="btn, btn-save" text="💾 Guardar Producto" HBox.hgrow="ALWAYS" />
+                                                <Button fx:id="btnCancelar" disable="true" onAction="#cancelarEdicion" styleClass="btn, btn-cancel" text="✖ Cancelar" />
+                                            </children>
+                                        </HBox>
+                                        <Button fx:id="btnNuevo" maxWidth="Infinity" onAction="#nuevoProducto" styleClass="btn, btn-new" text="✨ Nuevo / Limpiar Formulario" />
+                                    </children>
+                                </VBox>
+
+                            </children>
+                        </VBox>
+                    </children>
+                </VBox>
+
+                <!-- ========================================================= -->
+                <!-- COLUMNA DERECHA: MÉTRICAS Y TABLA DE DATOS               -->
+                <!-- ========================================================= -->
+                <VBox spacing="16.0" HBox.hgrow="ALWAYS">
+                    <children>
+
+                        <!-- Panel Superior de Métricas (Dashboard Cards) -->
+                        <HBox spacing="14.0">
+                            <children>
+                                <VBox spacing="2.0" styleClass="stat-card" HBox.hgrow="ALWAYS">
+                                    <children>
+                                        <Label styleClass="stat-label" text="TOTAL DE PRODUCTOS" />
+                                        <Label fx:id="lblTotalProductos" styleClass="stat-value" text="0" />
+                                    </children>
+                                </VBox>
+                                <VBox spacing="2.0" styleClass="stat-card" HBox.hgrow="ALWAYS">
+                                    <children>
+                                        <Label styleClass="stat-label" text="STOCK TOTAL (UNIDADES)" />
+                                        <Label fx:id="lblStockTotal" styleClass="stat-value" text="0" />
+                                    </children>
+                                </VBox>
+                                <VBox spacing="2.0" styleClass="stat-card" HBox.hgrow="ALWAYS">
+                                    <children>
+                                        <Label styleClass="stat-label" text="VALOR TOTAL INVENTARIO" />
+                                        <Label fx:id="lblValorInventario" styleClass="stat-value" text="\$0.00" />
+                                    </children>
+                                </VBox>
+                            </children>
+                        </HBox>
+
+                        <!-- Contenedor Principal de la Tabla -->
+                        <VBox spacing="12.0" styleClass="card" VBox.vgrow="ALWAYS">
+                            <children>
+
+                                <!-- Barra de Búsqueda y Botones de Tabla -->
+                                <HBox alignment="CENTER_LEFT" spacing="10.0">
+                                    <children>
+                                        <TextField fx:id="txtBuscar" prefWidth="280.0" promptText="🔍 Buscar por nombre o ID..." />
+                                        <Button fx:id="btnLimpiarBusqueda" onAction="#limpiarBusqueda" styleClass="btn, btn-cancel" text="Limpiar" />
+                                        <Region HBox.hgrow="ALWAYS" />
+                                        <Button fx:id="btnEditar" disable="true" onAction="#editarProducto" styleClass="btn, btn-edit" text="✏️ Editar Selección" />
+                                        <Button fx:id="btnEliminar" disable="true" onAction="#eliminarProducto" styleClass="btn, btn-delete" text="🗑️ Eliminar Selección" />
+                                    </children>
+                                </HBox>
+
+                                <!-- TableView de Productos -->
+                                <TableView fx:id="tablaProductos" VBox.vgrow="ALWAYS">
+                                    <columns>
+                                        <TableColumn fx:id="colId" maxWidth="80.0" minWidth="60.0" prefWidth="70.0" styleClass="cell-center" text="# ID" />
+                                        <TableColumn fx:id="colNombre" minWidth="180.0" prefWidth="240.0" text="Nombre del Producto" />
+                                        <TableColumn fx:id="colPrecio" maxWidth="150.0" minWidth="100.0" prefWidth="120.0" styleClass="cell-right" text="Precio Unit." />
+                                        <TableColumn fx:id="colCantidad" maxWidth="120.0" minWidth="80.0" prefWidth="90.0" styleClass="cell-center" text="Stock" />
+                                        <TableColumn fx:id="colSubtotal" maxWidth="160.0" minWidth="110.0" prefWidth="130.0" styleClass="cell-right" text="Valor Total" />
+                                    </columns>
+                                    <columnResizePolicy>
+                                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                    </columnResizePolicy>
+                                </TableView>
+
+                                <!-- Nota UX al pie de tabla -->
+                                <HBox alignment="CENTER_LEFT">
+                                    <children>
+                                        <Label style="-fx-font-size: 11px; -fx-text-fill: #94a3b8;" text="💡 Consejo UX: Selecciona una fila para habilitar 'Editar' o 'Eliminar'. También puedes hacer doble clic sobre un registro para editarlo rápidamente." />
+                                    </children>
+                                </HBox>
+
+                            </children>
+                        </VBox>
+
+                    </children>
+                </VBox>
+
+            </children>
+        </HBox>
+    </center>
+
+    <!-- ================================================================= -->
+    <!-- BARRA DE ESTADO INFERIOR (FOOTER)                                -->
+    <!-- ================================================================= -->
+    <bottom>
+        <HBox alignment="CENTER_LEFT" spacing="10.0" styleClass="footer-bar" BorderPane.alignment="CENTER">
+            <children>
+                <Label fx:id="lblEstadoPie" styleClass="footer-text" text="Sistema listo para operar." />
+                <Region HBox.hgrow="ALWAYS" />
+                <Label styleClass="footer-text" text="CRUD JavaFX • Arquitectura MVC • Almacenamiento Volátil en ArrayList" />
+            </children>
+        </HBox>
+    </bottom>
+
+</BorderPane>
